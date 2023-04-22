@@ -1,4 +1,3 @@
-import PropTypes from 'prop-types';
 import css from './FeedbackOptions.module.css';
 
 export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
@@ -39,7 +38,4 @@ export const FeedbackOptions = ({ options, onLeaveFeedback }) => {
       </li>
     </ul>
   );
-};
-FeedbackOptions.propTypes = {
-  items: PropTypes.shape({}),
 };

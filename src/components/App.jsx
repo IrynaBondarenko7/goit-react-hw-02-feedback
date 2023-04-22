@@ -63,3 +63,16 @@ export class App extends Component {
 Section.propTypes = {
   title: PropTypes.string.isRequired,
 };
+FeedbackOptions.propTypes = {
+  options: PropTypes.shape({
+    good: PropTypes.string,
+    neutral: PropTypes.string,
+    bad: PropTypes.string,
+  }).isRequired,
+};
+Statistic.propTypes = {
+  good: PropTypes.number,
+  neutral: PropTypes.number,
+  bad: PropTypes.number,
+  total: PropTypes.number,
+};
