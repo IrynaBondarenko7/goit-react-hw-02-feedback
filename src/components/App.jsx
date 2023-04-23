@@ -33,22 +33,20 @@ export class App extends Component {
   render() {
     const total = this.countTotalFeedback();
     const positiveValaue = this.countPositiveFeedbackPercentage();
+
+    const options = Object.keys(this.state);
+
     return (
       <Layout>
         <Section title={'Please leave feedback'}>
           <FeedbackOptions
-            options={{
-              good: 'good',
-              neutral: 'neutral',
-              bad: 'bad',
-            }}
+            options={options}
             onLeaveFeedback={this.updateStatistic}
           />
           {total >= 1 ? (
             <Statistic
-              good={this.state.good}
-              neutral={this.state.neutral}
-              bad={this.state.bad}
+              result={this.state}
+              options={options}
               total={total}
               positivePercentage={positiveValaue}
             />
@@ -64,15 +62,11 @@ Section.propTypes = {
   title: PropTypes.string.isRequired,
 };
 FeedbackOptions.propTypes = {
-  options: PropTypes.shape({
-    good: PropTypes.string,
-    neutral: PropTypes.string,
-    bad: PropTypes.string,
-  }).isRequired,
+  options: PropTypes.array.isRequired,
 };
 Statistic.propTypes = {
-  good: PropTypes.number,
-  neutral: PropTypes.number,
-  bad: PropTypes.number,
+  result: PropTypes.object.isRequired,
+  options: PropTypes.array.isRequired,
   total: PropTypes.number,
+  positivePercentage: PropTypes.number,
 };
